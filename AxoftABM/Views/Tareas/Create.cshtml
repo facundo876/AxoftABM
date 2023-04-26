@@ -1,0 +1,51 @@
+﻿@model AxoftABM.Models.Tarea
+
+<h2>Crear Tarea</h2>
+
+@using (Html.BeginForm("Create", "Tareas", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Descripcion)
+        @Html.TextBoxFor(model => model.Descripcion, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.Descripcion, "", new { @class = "text-danger" })
+    </div>
+
+    @*<div class="form-group">
+        @Html.LabelFor(model => model.Estado)
+        @Html.DropDownListFor(model => model.Estado, new SelectList(Enum.GetValues(typeof(EstadoTarea))), "Seleccione un estado", new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.Estado)
+    </div>*@
+
+    @*<div class="form-group">
+        <label class="control-label">Fecha Creación</label>
+        @Html.TextBoxFor(model => model.FechaCreacion, "{0:dd/MM/yyyy}", new { @class = "form-control datepicker" })
+        @Html.ValidationMessageFor(model => model.FechaCreacion, "", new { @class = "text-danger" })
+    </div>*@
+
+    <div class="form-group">
+        <label class="control-label">Fecha Vencimiento</label>
+        @Html.TextBoxFor(model => model.FechaVencimiento, "{0:dd/MM/yyyy}", new { @class = "form-control datepicker" })
+        @Html.ValidationMessageFor(model => model.FechaVencimiento, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        <input type="submit" value="Crear" class="btn btn-primary" />
+        @Html.ActionLink("Cancelar", "Index", null, new { @class = "btn btn-secondary" })
+    </div>
+}
+
+@section Scripts {
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/locale/es.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/datetimepicker@2.5.20/dist/jquery.datetimepicker.full.min.js"></script>
+
+    <script>
+        // Configurar el selector de fecha y hora
+        $(".datetimepicker").datetimepicker({
+            format: "YYYY-MM-DD HH:mm",
+            locale: "es"
+        });
+    </script>
+}

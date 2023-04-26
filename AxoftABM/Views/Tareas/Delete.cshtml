@@ -1,0 +1,20 @@
+﻿@model Tarea
+
+<h1>Eliminar Tarea</h1>
+
+<div>
+    <h4>ID: @Model.Id</h4>
+    <h4>Descripción: @Model.Descripcion</h4>
+    <h4>Estado: @Model.Estado</h4>
+    <h4>Fecha de Vencimiento: @Model.FechaVencimiento</h4>
+    <h4>Fecha de Creación: @Model.FechaCreacion</h4>
+</div>
+
+<p>¿Estás seguro de que deseas eliminar esta tarea?</p>
+
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(model => model.Id)
+    <input type="submit" value="Eliminar" class="btn btn-danger" />
+    @Html.ActionLink("Cancelar", "Index", null, new { @class = "btn btn-secondary" })
+}
