@@ -1,5 +1,3 @@
-Claro, aquí te proporciono una plantilla básica para el archivo README.md de tu aplicación:
-
 # Tareas
 
 Esta es una aplicación web ASP.NET Core para la gestión de tareas.
